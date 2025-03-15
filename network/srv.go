@@ -20,7 +20,7 @@ import (
 	"context"
 	"syscall"
 
-	"huhn.systems/gostrings/filter"
+	"huhn.systems/gofilter/filter"
 )
 
 type Srv struct {

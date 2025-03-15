@@ -12,11 +12,11 @@
 // ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 // OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
-// gostrings is an OpenBSD string filter using divert(4) written in Golang.
+// gofilter is an OpenBSD string filter using divert(4) written in Golang.
 //
 // For more information try runinng:
 //
-//	gostrings -h
+//	gofilter -h
 package main
 
 import (
@@ -27,8 +27,8 @@ import (
 	"os/signal"
 	"strings"
 
-	"huhn.systems/gostrings/filter"
-	"huhn.systems/gostrings/network"
+	"huhn.systems/gofilter/filter"
+	"huhn.systems/gofilter/network"
 )
 
 func main() {
@@ -46,9 +46,8 @@ func main() {
 
 	// Intercept sigint and shut down the program.
 	shutdown := make(chan struct{})
+	sigint := make(chan os.Signal)
 	go func() {
-		sigint := make(chan os.Signal)
-		// TODO: Is there more than an interrupt to be intercepted here?
 		signal.Notify(sigint, os.Interrupt)
 		<-sigint
 		srv.Shutdown()

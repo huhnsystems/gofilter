@@ -15,22 +15,22 @@
 build:
 	go build
 
-install: gostrings gostrings.rc
-	cp gostrings /usr/local/sbin/gostrings
-	chown root:bin /usr/local/sbin/gostrings
-	chmod 755 /usr/local/sbin/gostrings
-	cp gostrings.rc /etc/rc.d/gostrings
-	chown root:bin /etc/rc.d/gostrings
-	chmod 755 /etc/rc.d/gostrings
+install: gofilter gofilter.rc
+	cp gofilter /usr/local/sbin/gofilter
+	chown root:bin /usr/local/sbin/gofilter
+	chmod 755 /usr/local/sbin/gofilter
+	cp gofilter.rc /etc/rc.d/gofilter
+	chown root:bin /etc/rc.d/gofilter
+	chmod 755 /etc/rc.d/gofilter
 
 uninstall: 
-	rm -f /usr/local/sbin/gostrings
-	rm -f /etc/rc.d/gostrings
+	rm -f /usr/local/sbin/gofilter
+	rm -f /etc/rc.d/gofilter
 
-run: gostrings
-	./gostrings
+run: gofilter
+	./gofilter
 
 clean:
-	rm -f gostrings
+	rm -f gofilter
 
 .PHONY: build install uninstall run clean

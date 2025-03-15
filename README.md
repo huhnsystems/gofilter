@@ -1,5 +1,5 @@
 <p align="center">
-  <code>gostrings</code> is a string filter for PF on OpenBSD using divert(4). 
+  <code>gofilter</code> is a string filter for PF on OpenBSD using divert(4). 
 </p>
 
 #
@@ -13,7 +13,7 @@
 #
 
 > [!IMPORTANT]
-> `gostrings` is pre-alpha software.
+> `gofilter` is pre-alpha software.
 
 > [!NOTE]
 > In [CHANGELOG.md] you can follow recent changes.
@@ -24,14 +24,14 @@
 ### Usage
 
 ```
-Usage of gostrings:
+Usage of gofilter:
   -f string
         strings to filter, comma separated
   -p int
         divert socket listening port (default 700)
 ```
 
-`gostrings` makes use of the kernel packet diversion mechanism [divert(4)].
+`gofilter` makes use of the kernel packet diversion mechanism [divert(4)].
 Therefore, PF has to be configured accordingly. For example to filter inbound
 DNS traffic:
 
@@ -54,24 +54,24 @@ pass in proto udp to any port 53 divert-packet port 700
 
 ### Performance
 
-- `gostrings` reduces the available bandwidth down to 30%
-- `gostrings` worsens the reliability of the traffic, as the standard deviation of the
+- `gofilter` reduces the available bandwidth down to 30%
+- `gofilter` worsens the reliability of the traffic, as the standard deviation of the
   available bandwidth is very high
 
 ```
-# Without gostrings
+# Without gofilter
 bandwidth min/avg/max/std-dev = 927.681/934.177/935.895/2.475 Mbps
 
-# gostrings, without filter
+# gofilter, without filter
 bandwidth min/avg/max/std-dev = 0.023/310.585/925.562/293.994 Mbps
 
-# gostrings, 1 filter
+# gofilter, 1 filter
 bandwidth min/avg/max/std-dev = 0.000/308.867/935.003/282.638 Mbps
 
-# gostrings, 2 filter
+# gofilter, 2 filter
 bandwidth min/avg/max/std-dev = 0.023/313.504/916.121/261.767 Mbps
 
-# gostrings, 10 filter
+# gofilter, 10 filter
 bandwidth min/avg/max/std-dev = 0.092/315.832/910.908/264.350 Mbps
 ```
 
@@ -93,12 +93,12 @@ in the work by you shall be licensed as above, without any additional terms or
 conditions.
 
 [ROADMAP.md]:
-https://github.com/huhnsystems/gostrings/blob/master/docs/ROADMAP.md
+https://github.com/huhnsystems/gofilter/blob/master/docs/ROADMAP.md
 [CHANGELOG.md]:
-https://github.com/huhnsystems/gostrings/blob/master/docs/CHANGELOG.md
+https://github.com/huhnsystems/gofilter/blob/master/docs/CHANGELOG.md
 [CONTRIBUTING.md]:
-https://github.com/huhnsystems/gostrings/blob/master/docs/CONTRIBUTING.md
+https://github.com/huhnsystems/gofilter/blob/master/docs/CONTRIBUTING.md
 [SECURITY.md]:
-https://github.com/huhnsystems/gostrings/blob/master/docs/SECURITY.md
-[LICENSE]: https://github.com/huhnsystems/gostrings/blob/master/LICENSE
+https://github.com/huhnsystems/gofilter/blob/master/docs/SECURITY.md
+[LICENSE]: https://github.com/huhnsystems/gofilter/blob/master/LICENSE
 [divert(4)]: https://man.openbsd.org/divert.4

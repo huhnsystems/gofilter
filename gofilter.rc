@@ -1,6 +1,6 @@
 #!/bin/ksh
 
-daemon="/usr/local/sbin/gostrings"
+daemon="/usr/local/sbin/gofilter"
 daemon_logger="daemon.info"
 
 . /etc/rc.d/rc.subr

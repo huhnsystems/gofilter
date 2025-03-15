@@ -6,3 +6,7 @@
 - Minimize standard deviation of the bandwith and maximize overall performance
 - Implement prometheus exporter
 - Security audit
+- Implement specific filtering on dns packets (udp & tcp)
+```
+e.g.: gofilter --dns <STRING> or gofilter -d <STRING>
+```

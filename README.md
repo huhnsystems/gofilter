@@ -1,5 +1,5 @@
 <p align="center">
-  <code>gostrings</code> is a string filter for PF on OpenBSD using divert(4) 
+  <code>gostrings</code> is a string filter for PF on OpenBSD using divert(4). 
 </p>
 
 #
@@ -12,9 +12,12 @@
 
 #
 
-`gostrings` is pre-alpha software. [ROADMAP.md] shows our future plans.
+> [!IMPORTANT]
+> `gostrings` is pre-alpha software.
 
-In [CHANGELOG.md] you can follow recent changes.
+> [!NOTE]
+> In [CHANGELOG.md] you can follow recent changes.
+> [ROADMAP.md] shows our future plans.
 
 ***
 
@@ -38,14 +41,16 @@ pass in proto udp to any port 53 divert-packet port 700
 
 ### Caveats
 
-TCP segmentation offload will need to be disabled for the filter to not choke on
-large TCP packets:
+> [!CAUTION]
+> TCP segmentation offload will need to be disabled for the filter to not choke on
+> large TCP packets:
+>
+> ```
+> sysctl net.inet.tcp.tso=0
+> ```
 
-```
-sysctl net.inet.tcp.tso=0
-```
-
-IPv6 is currently broken at all.
+> [!CAUTION]
+> IPv6 is currently broken at all.
 
 ### Performance
 

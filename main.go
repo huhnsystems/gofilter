@@ -27,8 +27,8 @@ import (
 	"os/signal"
 	"strings"
 
-	"huhn.systems/gofilter/filter"
-	"huhn.systems/gofilter/network"
+	"github.com/huhnsystems/gofilter/filter"
+	"github.com/huhnsystems/gofilter/network"
 )
 
 func main() {
